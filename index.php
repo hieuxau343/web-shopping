@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, user-scalable-no" />
+    <meta name="viewport" content="width=device-width" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -13,14 +13,17 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
     <title>Document</title>
-    <script type="module" src="/assets/js/click.js"></script>
   </head>
   <body style="background-color: #fff">
     <div id="wrapper">
       <!-- ==============HEADER================== -->
       <div id="header">
         <nav class="container">
+          <div class="toggle">
+            <i class="fa-solid fa-bars"></i>
+          </div>
           <div class="logo">
             <a href="">
               <img src="assets/img/logo-dogcat-blue.png" alt="" />
@@ -37,14 +40,124 @@
           </ul>
           <ul id="menu-right">
             <li>
-              <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+              <a href="#!"><i class="fa-solid fa-magnifying-glass"></i></a>
             </li>
-            <li>
-              <a href=""><i class="fa-solid fa-user"></i></a>
-              <!-- <form action="">
-                <h2>Đăng nhập</h2>
+            <li class="loginInf">
+              <a href="#!"><i class="fa-solid fa-user"></i></a>
+              <div class="form" id="signup">
+                <!-- FORM DANG KY -->
 
-              </form> -->
+                <div class="wrp-form" id="signUp" style="display: none">
+                  <h1 class="form-title">Register</h1>
+                  <form action="register.php" method="post">
+                    <div class="input-grop">
+                      <i class="fa-solid fa-user"></i>
+                      <input
+                        type="text"
+                        name="fName"
+                        id="fName"
+                        placeholder="First Name"
+                        required
+                      />
+                      <label for="fName">First Name</label>
+                    </div>
+                    <div class="input-grop">
+                      <i class="fa-solid fa-user"></i>
+                      <input
+                        type="text"
+                        name="lName"
+                        id="lName"
+                        placeholder="Last Name"
+                        required
+                      />
+                      <label for="lName">Last Name</label>
+                    </div>
+                    <div class="input-grop">
+                      <i class="fa-solid fa-envelope"></i>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        required
+                      />
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="input-grop">
+                      <i class="fa-solid fa-lock"></i>
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        required
+                      />
+                      <label for="password">Password</label>
+                    </div>
+                    <input
+                      type="submit"
+                      class="btn"
+                      value="sign Up"
+                      name="signUp"
+                    />
+                  </form>
+                  <p class="or">---------or----------</p>
+                  <div class="icons">
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-facebook"></i>
+                  </div>
+                  <div class="links">
+                    <p>Already Have Account ?</p>
+                    <button id="signInButton">Sign In</button>
+                  </div>
+                </div>
+                <!-- FORM DANG NHAP -->
+                <div class="wrp-form" id="signIn">
+                  <h1 class="form-title">Sign In</h1>
+                  <form action="register.php" method="post">
+                    <div class="input-grop">
+                      <i class="fa-solid fa-envelope"></i>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Email"
+                        required
+                      />
+                      <label for="email">Email</label>
+                    </div>
+                    <div class="input-grop">
+                      <i class="fa-solid fa-lock"></i>
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        placeholder="Password"
+                        required
+                      />
+                      <label for="password">Password</label>
+                    </div>
+                    <p class="recover">
+                      <a href="#">Recover Password</a>
+                    </p>
+                    <input
+                      type="submit"
+                      class="btn"
+                      value="sign In"
+                      name="signIn"
+                    />
+                  </form>
+                  <p class="or">---------or----------</p>
+                  <div class="icons">
+                    <i class="fab fa-google"></i>
+                    <i class="fab fa-facebook"></i>
+                  </div>
+                  <div class="links">
+                    <p>Don`t have account yet?</p>
+                    <button id="signUpButton">Sign Up</button>
+                  </div>
+                </div>
+              </div>
             </li>
             <li>
               <a href=""
@@ -266,5 +379,7 @@
         </div>
       </div>
     </div>
+    <script type="module" src="../examFinal/assets/js/click.js"></script>
+    
   </body>
 </html>

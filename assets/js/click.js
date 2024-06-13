@@ -199,7 +199,6 @@ function ready() {
 
   //Quantity changes
   var quantityInput = document.getElementsByClassName("cart-quantity");
-  console.log(quantityInput);
   for (var i = 0; i < quantityInput.length; i++) {
     var input = quantityInput[i];
     input.addEventListener("change", quantityChanged);
@@ -215,7 +214,7 @@ function ready() {
 //Remove item from cart
 function removeCartItem(event) {
   var buttonClicked = event.target;
-  buttonClicked.parentElement.remove();
+  buttonClicked.closest("li").remove();
   updateTotal();
   numberCart();
 }
@@ -267,11 +266,11 @@ function addCartToHtml(name, price, img) {
 }
 function numberCart() {
   var numBlockCart = document.querySelector(".number-buy");
+  var price = document.querySelector(".total-price");
   if (totalQuantity > 0) {
     numBlockCart.textContent = totalQuantity;
     numBlockCart.style.visibility = "visible";
-  }else
-  numBlockCart.style.visibility = "hidden";
+  } else numBlockCart.style.visibility = "hidden";
 }
 
 function updateTotal() {
@@ -292,6 +291,40 @@ function updateTotal() {
     totalQuantity += parseInt(quantity);
     document.querySelector(".total-price").innerHTML = "$" + total;
   }
+  if (total == 0) {
+    document.querySelector(".total-price").innerHTML = "$" + 0;
+  }
   numberCart();
-  
 }
+
+// LOGIN
+const iconInf = document.querySelector(".loginInf");
+const formInput = document.querySelector(".form");
+const buttonSignIn = document.getElementById("signInButton");
+const buttonSignUp = document.getElementById("signUpButton");
+const signInForm = document.getElementById("signIn");
+const signUpForm = document.getElementById("signUp");
+function toggleForm(e) {
+  formInput.classList.toggle("active");
+}
+formInput.addEventListener("click", (e) => {
+  if (e.target == e.currentTarget) {
+    toggleForm();
+    signInForm.style.display = "block";
+    signUpForm.style.display = "none";
+  }
+  e.stopPropagation();
+});
+iconInf.addEventListener("click", toggleForm);
+
+// button
+
+buttonSignUp.addEventListener("click", () => {
+  signInForm.style.display = "none";
+  signUpForm.style.display = "block";
+});
+
+buttonSignIn.addEventListener("click", () => {
+  signInForm.style.display = "block";
+  signUpForm.style.display = "none";
+});

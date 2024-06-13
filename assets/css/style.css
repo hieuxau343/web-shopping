@@ -1,5 +1,6 @@
 :root {
   --primary-color: #30b5b2;
+  --secondly-color: rgb(125, 125, 235);
 }
 ::-webkit-scrollbar {
   width: 5px; /* Chiều rộng của thanh cuộn */
@@ -25,7 +26,6 @@ body {
 .container {
   max-width: 1230px;
   margin: 0 auto; /* Canh giữa container */
-
 }
 
 .center {
@@ -67,6 +67,13 @@ nav {
   justify-content: space-between;
   justify-items: center;
   align-items: center;
+}
+
+.toggle {
+  font-size: 22px;
+  padding: 10px;
+  color: white;
+  display: none;
 }
 
 .logo {
@@ -137,6 +144,160 @@ nav {
   display: none;
 }
 
+/* FORM */
+.form {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+.form.active {
+  display: block;
+}
+
+.wrp-form {
+  background-color: #fff;
+  width: 450px;
+  padding: 1.5rem;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 35px rgba(0, 0, 1, 0);
+}
+form {
+  margin: 0 2rem;
+}
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.3rem;
+  margin-bottom: 0.4rem;
+}
+input {
+  color: inherit;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #757575;
+  padding-left: 1.5rem;
+  font-size: 15px;
+}
+.input-grop {
+  padding: 1% 0;
+  position: relative;
+  margin-bottom: 10px;
+}
+.input-grop i {
+  position: absolute;
+  color: black;
+}
+
+input:focus {
+  background-color: transparent;
+  outline: transparent;
+  border-bottom: 2px solid hsl(327, 90%, 28%);
+}
+
+input::placeholder {
+  color: transparent;
+}
+label {
+  color: #757575;
+  position: relative;
+  left: 1.2em;
+  top: -1.3em;
+  cursor: auto;
+  transition: 0.3s ease all;
+}
+input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+  top: -3em;
+  color: hsl(327, 90%, 28%);
+  font-size: 15px;
+}
+.recover {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+.recover a {
+  text-decoration: none;
+  color: var(--secondly-color);
+}
+.recover a:hover {
+  color: blue;
+  text-decoration: underline;
+}
+.btn {
+  font-size: 1.1rem;
+  padding: 8px 0;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: var(--secondly-color);
+  color: white;
+  cursor: pointer;
+  transition: 0.9s;
+}
+
+.btn:hover {
+  background: #07001f;
+}
+
+.or {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+.icons {
+  text-align: center;
+}
+
+.icons i {
+  color: var(--secondly-color);
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: 2px solid #dfe9f5;
+  margin: 0 15px;
+  transition: 1s;
+}
+
+.icons i:hover {
+  background: #07001f;
+  font-size: 1.6rem;
+  border: 2px solid var(--secondly-color);
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 4rem;
+  margin-top: 0.9rem;
+  font-weight: bold;
+}
+
+button {
+  color: var(--secondly-color);
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+button:hover {
+  text-decoration: underline;
+  color: blue;
+}
+
 .menu-buy {
   background-color: #fff;
   position: absolute;
@@ -183,6 +344,7 @@ nav {
   width: 2.4rem;
   text-align: center;
   font-size: 1rem;
+  padding: 0 !important;
 }
 .price {
   font-weight: 500;
@@ -197,6 +359,15 @@ nav {
   cursor: pointer;
 }
 
+/* Responsive header */
+@media screen and (max-width: 991px) {
+  #main-menu {
+    display: none;
+  }
+  .toggle {
+    display: block;
+  }
+}
 .total-price {
   display: flex;
   margin-left: 0.5rem;
@@ -633,7 +804,7 @@ ul.benefit-lists {
 }
 /* ==================================FOOTER============================================== */
 #footer {
-  background-image: url(/assets/img/soi.jpg);
+  background-image: url(/examFinal/assets/img/soi.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -725,6 +896,7 @@ ul.benefit-lists {
   padding: 0 10px;
   color: #a4a4a4;
   font-size: 14px;
+  background-color: #fff;
 }
 .email-button .input-submit {
   height: 45px;
@@ -737,6 +909,7 @@ ul.benefit-lists {
   color: #fff;
   text-transform: uppercase;
   font-weight: 600;
+  width: 20%;
 }
 
 .right-content {
@@ -771,4 +944,3 @@ ul.benefit-lists {
 .copy-right .container p {
   line-height: 35px;
 }
-
